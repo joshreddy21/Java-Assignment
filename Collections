@@ -1,1 +1,87 @@
+** 1. Create an ArrayList of type String with 10 string elements. Add 10 string elements to 
+ArrayList and perform the below operations
+Add an element to the ArrayList
+Iterate through the ArrayList by using Iterator object
+Add an element at a specific index
+Remove an element from the ArrayList, Remove at an index
+Update the element at a specific index
+Check the element is present at a particular index
+Get an element at a particular index
+Find out the size of the ArrayList
+Check the given element is present in the ArrayList
+Remove all elements of the ArrayList***
+
+
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class ArrayListOperations {
+    public static void main(String[] args) {
+        // Create an ArrayList of type String
+        ArrayList<String> stringArrayList = new ArrayList<>();
+
+        // Add 10 string elements to the ArrayList
+        stringArrayList.add("1");
+        stringArrayList.add("2");
+        stringArrayList.add("3");
+        stringArrayList.add("5");
+        stringArrayList.add("7");
+        stringArrayList.add("8");
+        stringArrayList.add("6");
+        stringArrayList.add("4");
+        stringArrayList.add("8");
+        stringArrayList.add("2");
+
+        // Print the initial ArrayList
+        System.out.println("Initial ArrayList: " + stringArrayList);
+
+        // Add an element to the ArrayList
+        stringArrayList.add("New Element");
+
+        // Iterate through the ArrayList using Iterator
+        System.out.println("\nIterating through ArrayList using Iterator:");
+        Iterator<String> iterator = stringArrayList.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+
+        // Add an element at a specific index
+        int indexToAdd = 3;
+        stringArrayList.add(indexToAdd, "Inserted Element");
+
+        // Remove an element from the ArrayList (Remove at an index)
+        int indexToRemove = 5;
+        stringArrayList.remove(indexToRemove);
+
+        // Update the element at a specific index
+        int indexToUpdate = 7;
+        stringArrayList.set(indexToUpdate, "Updated Element");
+
+        // Check if an element is present at a particular index
+        int indexToCheck = 2;
+        if (indexToCheck < stringArrayList.size()) {
+            System.out.println("\nElement at index " + indexToCheck + ": " + stringArrayList.get(indexToCheck));
+        } else {
+            System.out.println("\nIndex " + indexToCheck + " is out of bounds.");
+        }
+
+        // Find out the size of the ArrayList
+        System.out.println("\nSize of ArrayList: " + stringArrayList.size());
+
+        // Check if a given element is present in the ArrayList
+        String elementToCheck = "8";
+        if (stringArrayList.contains(elementToCheck)) {
+            System.out.println("\nArrayList contains: " + elementToCheck);
+        } else {
+            System.out.println("\nArrayList does not contain: " + elementToCheck);
+        }
+
+        // Remove all elements of the ArrayList
+        stringArrayList.clear();
+
+        // Print the final ArrayList after removing all elements
+        System.out.println("\nFinal ArrayList after clearing all elements: " + stringArrayList);
+    }
+}
 
