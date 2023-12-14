@@ -1,0 +1,196 @@
+****** Write a class with a default constructor, one argument constructor and two argument 
+constructors. Instantiate the class to call all the constructors of that class from a main 
+class.*****
+
+class MyClass {
+    private int value1;
+    private int value2;
+
+    // Default constructor
+    public MyClass() {
+        System.out.println("Default Constructor called.");
+    }
+
+    // One-argument constructor
+    public MyClass(int value1) {
+        this.value1 = value1;
+        System.out.println("One-Argument Constructor called with value1: " + value1);
+    }
+
+    // Two-argument constructor
+    public MyClass(int value1, int value2) {
+        this.value1 = value1;
+        this.value2 = value2;
+        System.out.println("Two-Argument Constructor called with values: " + value1 + ", " + value2);
+    }
+
+    // Getter methods
+    public int getValue1() {
+        return value1;
+    }
+
+    public int getValue2() {
+        return value2;
+    }
+}
+
+public class MainClass {
+    public static void main(String[] args) {
+        // Instantiate the class to call all constructors
+        MyClass obj1 = new MyClass();                  // Default Constructor
+        MyClass obj2 = new MyClass(10);                // One-Argument Constructor
+        MyClass obj3 = new MyClass(20, 30);            // Two-Argument Constructor
+
+        // Accessing values from the instantiated objects
+        System.out.println("Value1 in obj2: " + obj2.getValue1());
+        System.out.println("Value2 in obj3: " + obj3.getValue2());
+    }
+}
+******  Call the constructors(both default and argument constructors) of super class from a child 
+class*************
+
+class SuperClass {
+    private int superValue;
+
+    // Default constructor of the superclass
+    public SuperClass() {
+        System.out.println("SuperClass Default Constructor called.");
+        this.superValue = 0;
+    }
+
+    // Argument constructor of the superclass
+    public SuperClass(int superValue) {
+        System.out.println("SuperClass Argument Constructor called with value: " + superValue);
+        this.superValue = superValue;
+    }
+
+    public int getSuperValue() {
+        return superValue;
+    }
+}
+
+class ChildClass extends SuperClass {
+    private int childValue;
+
+    // Default constructor of the child class
+    public ChildClass() {
+        super(); // Call the default constructor of the superclass
+        System.out.println("ChildClass Default Constructor called.");
+        this.childValue = 0;
+    }
+
+    // Argument constructor of the child class
+    public ChildClass(int superValue, int childValue) {
+        super(superValue); // Call the argument constructor of the superclass
+        System.out.println("ChildClass Argument Constructor called with values: " + superValue + ", " + childValue);
+        this.childValue = childValue;
+    }
+
+    public int getChildValue() {
+        return childValue;
+    }
+}
+
+public class MainClass {
+    public static void main(String[] args) {
+        // Instantiate the child class to call constructors of both super and child class
+        ChildClass childObj1 = new ChildClass();                             // Default constructors
+        ChildClass childObj2 = new ChildClass(10, 20);                       // Argument constructors
+
+        // Accessing values from the instantiated objects
+        System.out.println("SuperValue in childObj1: " + childObj1.getSuperValue());
+        System.out.println("ChildValue in childObj2: " + childObj2.getChildValue());
+    }
+}
+
+**** Apply private, public, protected and default access modifiers to the constructor.****
+// Class with default access (package-private)
+class MyClassDefault {
+    // Default constructor with default access
+    MyClassDefault() {
+        System.out.println("MyClassDefault Constructor");
+    }
+}
+
+// Class with public access
+public class MyClassPublic {
+    // Public constructor
+    public MyClassPublic() {
+        System.out.println("MyClassPublic Constructor");
+    }
+}
+
+// Class with private access
+class MyClassPrivate {
+    // Private constructor
+    private MyClassPrivate() {
+        System.out.println("MyClassPrivate Constructor");
+    }
+
+    // Public method to create an instance (factory method)
+    public static MyClassPrivate createInstance() {
+        return new MyClassPrivate();
+    }
+}
+
+// Class with protected access
+class MyClassProtected {
+    // Protected constructor
+    protected MyClassProtected() {
+        System.out.println("MyClassProtected Constructor");
+    }
+}
+
+public class MainClass {
+    public static void main(String[] args) {
+        // Creating objects using constructors from different classes
+
+        // Using the default (package-private) constructor
+        MyClassDefault objDefault = new MyClassDefault();
+
+        // Using the public constructor
+        MyClassPublic objPublic = new MyClassPublic();
+
+        // Using a factory method to create an instance with a private constructor
+        MyClassPrivate objPrivate = MyClassPrivate.createInstance();
+
+        // Using the protected constructor (within the same package)
+        MyClassProtected objProtected = new MyClassProtected();
+    }
+}
+
+
+******** Write constructors with return type int and String
+*****
+constructors do not have a return type, and they cannot return values explicitly. The purpose of a constructor is to initialize the object, and it implicitly returns an instance of the class. Constructors are called using the new keyword when creating an object, and their purpose is to set up the initial state of the object.
+
+
+class MyClass {
+    private int intValue;
+    private String stringValue;
+
+    // Constructor with int parameter
+    public MyClass(int intValue) {
+        this.intValue = intValue;
+        System.out.println("Constructor with int parameter: " + intValue);
+    }
+
+    // Constructor with String parameter
+    public MyClass(String stringValue) {
+        this.stringValue = stringValue;
+        System.out.println("Constructor with String parameter: " + stringValue);
+    }
+
+******** Try to call the constructor multiple times with the same object*****
+it is not possible to call constructor multiple time.In Java, once an object is created, its constructor is called only once during the object's instantiation.
+If you try to call a constructor multiple times with the same object, it won't work because constructors are meant to initialize the object's state during its creation.
+public class MainClass {
+    public static void main(String[] args) {
+        MyClass myObj = new MyClass(); // Calling the parameterless constructor
+        myObj.x = 10;
+        myObj.y = 20;
+
+        // If you try to call the constructor again with the same object, it will cause a compile-time error
+        // myObj = new MyClass(50, 60);
+    }
+}
