@@ -1,1 +1,104 @@
+***1.Write a program to read text from .txt file using InputStream.****
+
+import java.io.*;
+
+public class ReadTextFileWithInputStream {
+    public static void main(String[] args) {
+        // Specify the path to your .txt file
+        String filePath = "path/to/your/file.txt";
+
+        try (InputStream inputStream = new FileInputStream(filePath)) {
+            // Specify the character encoding (UTF-8 in this example)
+            InputStreamReader reader = new InputStreamReader(inputStream, "UTF-8");
+
+            // Using a BufferedReader for efficient reading
+            BufferedReader bufferedReader = new BufferedReader(reader);
+
+            // Read and print each line from the file
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (FileNotFoundException e) {
+            System.err.println("File not found: " + filePath);
+        } catch (IOException e) {
+            System.err.println("Error reading the file: " + e.getMessage());
+        }
+    }
+}
+
+
+
+****2. Write a program to write text to .txt file using OutputStream.*****
+
+import java.io.*;
+
+public class WriteTextToFileWithOutputStream {
+    public static void main(String[] args) {
+        // Specify the path to your .txt file
+        String filePath = "path/to/your/file.txt";
+
+        try (OutputStream outputStream = new FileOutputStream(filePath)) {
+            // Specify the character encoding (UTF-8 in this example)
+            OutputStreamWriter writer = new OutputStreamWriter(outputStream, "UTF-8");
+
+            // Using a BufferedWriter for efficient writing
+            BufferedWriter bufferedWriter = new BufferedWriter(writer);
+
+            // Write text to the file
+            String textToWrite = "Hello, this is a sample text!\nThis is a new line.";
+            bufferedWriter.write(textToWrite);
+
+            // Close the streams
+            bufferedWriter.close();
+            writer.close();
+            outputStream.close();
+
+            System.out.println("Text successfully written to the file.");
+        } catch (FileNotFoundException e) {
+            System.err.println("File not found: " + filePath);
+        } catch (IOException e) {
+            System.err.println("Error writing to the file: " + e.getMessage());
+        }
+    }
+}
+
+
+****3.Read text from a .txt file using BufferedInputStream ****
+
+import java.io.*;
+
+public class ReadTextFileWithBufferedInputStream {
+    public static void main(String[] args) {
+        // Specify the path to your .txt file
+        String filePath = "path/to/your/file.txt";
+
+        try (InputStream inputStream = new FileInputStream(filePath);
+             BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream)) {
+
+            // Specify the character encoding (UTF-8 in this example)
+            InputStreamReader reader = new InputStreamReader(bufferedInputStream, "UTF-8");
+
+            // Using a BufferedReader for efficient reading
+            BufferedReader bufferedReader = new BufferedReader(reader);
+
+            // Read and print each line from the file
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                System.out.println(line);
+            }
+
+            // Close the streams
+            bufferedReader.close();
+            reader.close();
+        } catch (FileNotFoundException e) {
+            System.err.println("File not found: " + filePath);
+        } catch (IOException e) {
+            System.err.println("Error reading the file: " + e.getMessage());
+        }
+    }
+}
+
+****11.. Write a program to write data to excel****
+
 
