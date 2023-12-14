@@ -1,0 +1,236 @@
+***Write a class with 2 static variables, 2 Instance variables, 2 static methods, 2 instance 
+methods and a main method.
+****public class MyClass {
+    // Static variables
+    private static int staticVar1;
+    private static String staticVar2;
+
+    // Instance variables
+    private int instanceVar1;
+    private String instanceVar2;
+
+    // Static methods
+    public static void setStaticVar1(int value) {
+        staticVar1 = value;
+    }
+
+    public static void setStaticVar2(String value) {
+        staticVar2 = value;
+    }
+
+    // Instance methods
+    public void setInstanceVar1(int value) {
+        instanceVar1 = value;
+    }
+
+    public void setInstanceVar2(String value) {
+        instanceVar2 = value;
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        // Example usage:
+        setStaticVar1(10);
+        setStaticVar2("Hello, Static!");
+
+        MyClass myObject = new MyClass();
+        myObject.setInstanceVar1(20);
+        myObject.setInstanceVar2("Hello, Instance!");
+
+        System.out.println("Static Variable 1: " + staticVar1);
+        System.out.println("Static Variable 2: " + staticVar2);
+
+        System.out.println("Instance Variable 1: " + myObject.instanceVar1);
+        System.out.println("Instance Variable 2: " + myObject.instanceVar2);
+    }
+}
+
+****Print instance variables in static methods.*****
+public class MyClass {
+    // Instance variables
+    private int instanceVar1;
+    private String instanceVar2;
+
+    // Static method
+    public static void printInstanceVariables(MyClass instance) {
+        // Access instance variables using the provided instance
+        System.out.println("Instance Variable 1: " + instance.instanceVar1);
+        System.out.println("Instance Variable 2: " + instance.instanceVar2);
+    }
+
+    // Instance methods
+    public void setInstanceVariables(int value1, String value2) {
+        instanceVar1 = value1;
+        instanceVar2 = value2;
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        MyClass myObject = new MyClass();
+        myObject.setInstanceVariables(20, "Hello, Instance!");
+
+        // Call the static method and pass the instance
+        printInstanceVariables(myObject);
+    }
+}
+
+******Print static variables in Instance methods****
+public class MyClass {
+    // Static variables
+    private static int staticVar1;
+    private static String staticVar2;
+
+    // Instance variables
+    private int instanceVar1;
+    private String instanceVar2;
+
+    // Static method to set static variables
+    public static void setStaticVariables(int value1, String value2) {
+        staticVar1 = value1;
+        staticVar2 = value2;
+    }
+
+    // Instance method to print static variables
+    public void printStaticVariables() {
+        System.out.println("Static Variable 1: " + staticVar1);
+        System.out.println("Static Variable 2: " + staticVar2);
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        // Set static variables using the static method
+        setStaticVariables(100, "Hello, Static!");
+
+        // Create an instance of MyClass
+        MyClass myObject = new MyClass();
+        myObject.setInstanceVariables(20, "Hello, Instance!");
+
+        // Call the instance method to print static variables
+        myObject.printStaticVariables();
+    }
+
+    // Instance method to set instance variables
+    public void setInstanceVariables(int value1, String value2) {
+        instanceVar1 = value1;
+        instanceVar2 = value2;
+    }
+}
+
+**** Call instance methods in static methods.****
+public class MyClass {
+    // Instance variables
+    private int instanceVar;
+
+    // Instance method
+    public void instanceMethod() {
+        System.out.println("Inside instanceMethod. InstanceVar: " + instanceVar);
+    }
+
+    // Static method with instance creation
+    public static void staticMethodWithInstanceCreation() {
+        // Create an instance of MyClass
+        MyClass myObject = new MyClass();
+
+        // Call the instance method on the created instance
+        myObject.instanceMethod();
+    }
+
+    // Static method with instance parameter
+    public static void staticMethodWithInstanceParameter(MyClass instance) {
+        // Call the instance method using the passed instance
+        instance.instanceMethod();
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        // Call instance method from a static method with instance creation
+        staticMethodWithInstanceCreation();
+
+        // Call instance method from a static method with instance parameter
+        MyClass myObject = new MyClass();
+        staticMethodWithInstanceParameter(myObject);
+    }
+}
+*****Print all the static, instance variables in main method.*****
+public class MyClass {
+    // Static variables
+    private static int staticVar1 = 10;
+    private static String staticVar2 = "Static Variable";
+
+    // Instance variables
+    private int instanceVar1 = 20;
+    private String instanceVar2 = "Instance Variable";
+
+    // Instance method
+    public void instanceMethod() {
+        System.out.println("Inside instanceMethod. InstanceVar1: " + instanceVar1 + ", InstanceVar2: " + instanceVar2);
+    }
+
+    // Static method
+    public static void staticMethod() {
+        System.out.println("Inside staticMethod. StaticVar1: " + staticVar1 + ", StaticVar2: " + staticVar2);
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        // Access static variables directly in the main method
+        System.out.println("Accessing static variables in the main method:");
+        System.out.println("StaticVar1: " + staticVar1);
+        System.out.println("StaticVar2: " + staticVar2);
+
+        // Create an instance of MyClass to access instance variables
+        MyClass myObject = new MyClass();
+
+        // Access instance variables using the instance in the main method
+        System.out.println("\nAccessing instance variables in the main method:");
+        System.out.println("InstanceVar1: " + myObject.instanceVar1);
+        System.out.println("InstanceVar2: " + myObject.instanceVar2);
+
+        // Call instance method in the main method
+        System.out.println("\nCalling instance method in the main method:");
+        myObject.instanceMethod();
+
+        // Call static method in the main method
+        System.out.println("\nCalling static method in the main method:");
+        staticMethod();
+    }
+}
+
+*********Call static methods and instance methods in main method****
+public class MyClass {
+    // Static method
+    public static void staticMethod() {
+        System.out.println("Inside staticMethod.");
+    }
+
+    // Instance method
+    public void instanceMethod() {
+        System.out.println("Inside instanceMethod.");
+    }
+
+    // Static method with parameters
+    public static void staticMethodWithParameters(String message) {
+        System.out.println("Inside staticMethodWithParameters: " + message);
+    }
+
+    // Instance method with parameters
+    public void instanceMethodWithParameters(String message) {
+        System.out.println("Inside instanceMethodWithParameters: " + message);
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        // Call static method
+        staticMethod();
+
+        // Call instance method
+        MyClass myObject = new MyClass();
+        myObject.instanceMethod();
+
+        // Call static method with parameters
+        staticMethodWithParameters("Hello from staticMethodWithParameters!");
+
+        // Call instance method with parameters
+        myObject.instanceMethodWithParameters("Hello from instanceMethodWithParameters!");
+    }
+}
