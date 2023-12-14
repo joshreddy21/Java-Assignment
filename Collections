@@ -85,3 +85,143 @@ public class ArrayListOperations {
     }
 }
 
+
+
+
+
+
+2.***Create a HashMap with at least 10 key value pairs of the Student ID and Name
+Insert a Key value mapping into the map
+Fetch the value of a Key
+Create a clone/copy of HashMap
+Check if the given Key is in the Map
+Check if the value is in the Map
+Check if the map is empty
+Print the size of the Map to the console
+Print all the Keys of the map to the console
+Print all the Keys of the map to the console
+Remove a specific Key-value pair
+Copy all the elements of the Map to another Map ****
+
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+public class HashMapOperations {
+    public static void main(String[] args) {
+        // Create a HashMap with at least 10 key-value pairs
+        Map<Integer, String> studentMap = new HashMap<>();
+        studentMap.put(1, "John");
+        studentMap.put(2, "Alice");
+        studentMap.put(3, "Bob");
+        studentMap.put(4, "Charlie");
+        studentMap.put(5, "David");
+        studentMap.put(6, "Emma");
+        studentMap.put(7, "Frank");
+        studentMap.put(8, "Grace");
+        studentMap.put(9, "Henry");
+        studentMap.put(10, "Ivy");
+
+        // Print the initial HashMap
+        System.out.println("Initial HashMap: " + studentMap);
+
+        // Insert a key-value mapping into the map
+        studentMap.put(11, "Jack");
+
+        // Fetch the value of a key
+        int keyToFetch = 5;
+        String value = studentMap.get(keyToFetch);
+        System.out.println("\nValue for key " + keyToFetch + ": " + value);
+
+        // Create a clone/copy of HashMap
+        Map<Integer, String> copyMap = new HashMap<>(studentMap);
+
+        // Check if a given key is in the map
+        int keyToCheck = 7;
+        System.out.println("\nIs key " + keyToCheck + " present in the map? " + studentMap.containsKey(keyToCheck));
+
+        // Check if a value is in the map
+        String valueToCheck = "Emma";
+        System.out.println("Is value '" + valueToCheck + "' present in the map? " + studentMap.containsValue(valueToCheck));
+
+        // Check if the map is empty
+        System.out.println("Is the map empty? " + studentMap.isEmpty());
+
+        // Print the size of the map to the console
+        System.out.println("Size of the map: " + studentMap.size());
+
+        // Print all the keys of the map to the console
+        Set<Integer> keys = studentMap.keySet();
+        System.out.println("\nAll keys in the map: " + keys);
+
+        // Print all the values of the map to the console
+        System.out.println("All values in the map: " + studentMap.values());
+
+        // Remove a specific key-value pair
+        int keyToRemove = 6;
+        studentMap.remove(keyToRemove);
+        System.out.println("\nHashMap after removing key " + keyToRemove + ": " + studentMap);
+
+        // Copy all the elements of the map to another map
+        Map<Integer, String> newMap = new HashMap<>();
+        newMap.putAll(studentMap);
+        System.out.println("\nNew map created by copying all elements: " + newMap);
+    }
+}
+
+
+
+**** 3.Create a HashSet with at least 10 elements of type String
+Write program covering all the operations of HashSet ***
+
+import java.util.HashSet;
+import java.util.Iterator;
+
+public class HashSetOperations {
+    public static void main(String[] args) {
+        // Create a HashSet with at least 10 elements of type String
+        HashSet<String> stringHashSet = new HashSet<>();
+        stringHashSet.add("Apple");
+        stringHashSet.add("Banana");
+        stringHashSet.add("Cherry");
+        stringHashSet.add("Promganate");
+        stringHashSet.add("Orange");
+        stringHashSet.add("Grapes");
+        stringHashSet.add("Kiwi");
+        stringHashSet.add("Mango");
+        stringHashSet.add("Peach");
+        stringHashSet.add("Pear");
+
+        // Print the initial HashSet
+        System.out.println("Initial HashSet: " + stringHashSet);
+
+        // Add an element to the HashSet
+        stringHashSet.add("Strawberry");
+
+        // Iterate through the HashSet using Iterator
+        System.out.println("\nIterating through HashSet using Iterator:");
+        Iterator<String> iterator = stringHashSet.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+
+        // Check if a given element is in the HashSet
+        String elementToCheck = "Grapes";
+        System.out.println("\nIs '" + elementToCheck + "' present in the HashSet? " + stringHashSet.contains(elementToCheck));
+
+        // Remove an element from the HashSet
+        stringHashSet.remove("Kiwi");
+
+        // Check if the HashSet is empty
+        System.out.println("\nIs the HashSet empty? " + stringHashSet.isEmpty());
+
+        // Print the size of the HashSet to the console
+        System.out.println("Size of the HashSet: " + stringHashSet.size());
+
+        // Remove all elements from the HashSet
+        stringHashSet.clear();
+        System.out.println("\nHashSet after clearing all elements: " + stringHashSet);
+    }
+}
+
