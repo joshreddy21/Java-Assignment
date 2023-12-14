@@ -1,0 +1,80 @@
+****Different ways creating a string ****
+<<<Using String Literal>>>>>
+String str1 = "John";
+<<<<<Using new Keyword>>>>
+String str2 = new String("Josh!");
+<<<<Using String(char[]) Constructor>>>>
+char[] charArray = {'h', 'e', 'l', 'l', 'o'};
+String str3 = new String(charArray);
+<<<<<<<Using String(byte[]) Constructor>>>>
+byte[] byteArray = {72, 101, 108, 108, 111}; // ASCII values for "Hello"
+String str4 = new String(byteArray);
+
+<<<<<<Using + Operator>>>>
+String str9 = "Hello" + ", " + "World";
+
+<<<<<Using String.join Method>>>>>
+String[] words = { "World"};
+String str8 = String.join(", ", words);
+<<<<<Using String.format Method>>
+String str6 = String.format("Value is %d", 42);
+
+
+******Concatenating two strings using + operator****
+public class StringConcatenationExample {
+    public static void main(String[] args) {
+        String str1 = "Hello";
+        String str2 = "World";
+
+        // Concatenate using the + operator
+        String result = str1 + ", " + str2;
+
+        // Print the result
+        System.out.println(result);
+    }
+}
+
+********Finding the length of the string****
+public class StringLengthExample {
+    public static void main(String[] args) {
+        String myString = "Hello, World!";
+
+        // Get the length of the string
+        int length = myString.length();
+
+        // Print the length
+        System.out.println("Length of the string: " + length);
+    }
+}
+
+****Extract a string using Substring***
+
+public class SubstringExample {
+    public static void main(String[] args) {
+        String originalString = "Hello, World!";
+
+        // Extract substring from index 7 to the end of the string
+        String substring1 = originalString.substring(7);
+        System.out.println("Substring 1: " + substring1);
+
+        // Extract substring from index 0 to 5 (exclusive)
+        String substring2 = originalString.substring(0, 5);
+        System.out.println("Substring 2: " + substring2);
+    }
+}
+
+**** . Searching in strings using indexOf()*****
+public class StringSearchExample {
+    public static void main(String[] args) {
+        String myString = "Hello, World!";
+
+        // Search for the index of a substring
+        int index1 = myString.indexOf("World");
+        int index2 = myString.indexOf("Java");
+
+        // Print the results
+        System.out.println("Index of 'World': " + index1); // Output: 7
+        System.out.println("Index of 'Java': " + index2);  // Output: -1 (not found)
+    }
+}
+
