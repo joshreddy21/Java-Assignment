@@ -1,0 +1,213 @@
+class A {
+    // Instance variable
+    protected int varA;
+
+    // Constructor
+    public A(int varA) {
+        this.varA = varA;
+    }
+
+    // Specific method for class A
+    public void methodA1() {
+        System.out.println("Method A1");
+    }
+
+    // Specific method for class A
+    public void methodA2() {
+        System.out.println("Method A2");
+    }
+
+    // Override method in all three classes
+    public void overrideMethod() {
+        System.out.println("Override Method in class A");
+    }
+}
+
+class B extends A {
+    // Instance variable
+    protected int varB;
+
+    // Constructor
+    public B(int varA, int varB) {
+        super(varA);
+        this.varB = varB;
+    }
+
+    // Specific method for class B
+    public void methodB1() {
+        System.out.println("Method B1");
+    }
+
+    // Specific method for class B
+    public void methodB2() {
+        System.out.println("Method B2");
+    }
+
+    // Override method in all three classes
+    @Override
+    public void overrideMethod() {
+        System.out.println("Override Method in class B");
+    }
+}
+
+class C extends B {
+    // Instance variable
+    private int varC;
+
+    // Constructor
+    public C(int varA, int varB, int varC) {
+        super(varA, varB);
+        this.varC = varC;
+    }
+
+    // Specific method for class C
+    public void methodC1() {
+        System.out.println("Method C1");
+    }
+
+    // Specific method for class C
+    public void methodC2() {
+        System.out.println("Method C2");
+    }
+
+    // Override method in all three classes
+    @Override
+    public void overrideMethod() {
+        System.out.println("Override Method in class C");
+    }
+}
+
+public class MainClass {
+    public static void main(String[] args) {
+        // Creating objects for each class
+        A objA = new A(10);
+        B objB = new B(20, 30);
+        C objC = new C(40, 50, 60);
+
+        // Calling methods of each class using its own object
+        objA.methodA1();
+        objA.methodA2();
+        objA.overrideMethod();
+        System.out.println("VarA in class A: " + objA.varA);
+
+        objB.methodB1();
+        objB.methodB2();
+        objB.overrideMethod();
+        System.out.println("VarA in class B: " + objB.varA);
+        System.out.println("VarB in class B: " + objB.varB);
+
+        objC.methodC1();
+        objC.methodC2();
+        objC.overrideMethod();
+        System.out.println("VarA in class C: " + objC.varA);
+        System.out.println("VarB in class C: " + objC.varB);
+        System.out.println("VarC in class C: " + objC.varC);
+
+        // Runtime Polymorphism - calling overridden method with super class reference
+        A referenceToB = new B(20, 30);
+        A referenceToC = new C(40, 50, 60);
+
+        referenceToB.overrideMethod(); // Calls overrideMethod in class B
+        referenceToC.overrideMethod(); // Calls overrideMethod in class C
+    }
+}
+                    [or]
+
+
+
+
+class A {
+    protected int varA;
+
+    public A(int varA) {
+        this.varA = varA;
+    }
+
+    public void methodA1() {
+        System.out.println("Method A1");
+    }
+
+    public void methodA2() {
+        System.out.println("Method A2");
+    }
+
+    public void overrideMethod() {
+        System.out.println("Override Method in class A");
+    }
+}
+
+class B extends A {
+    protected int varB;
+
+    public B(int varA, int varB) {
+        super(varA);
+        this.varB = varB;
+    }
+
+    public void methodB1() {
+        System.out.println("Method B1");
+    }
+
+    public void methodB2() {
+        System.out.println("Method B2");
+    }
+
+    @Override
+    public void overrideMethod() {
+        System.out.println("Override Method in class B");
+    }
+}
+
+class C extends B {
+    private int varC;
+
+    public C(int varA, int varB, int varC) {
+        super(varA, varB);
+        this.varC = varC;
+    }
+
+    public void methodC1() {
+        System.out.println("Method C1");
+    }
+
+    public void methodC2() {
+        System.out.println("Method C2");
+    }
+
+    @Override
+    public void overrideMethod() {
+        System.out.println("Override Method in class C");
+    }
+}
+
+public class MainClass {
+    public static void main(String[] args) {
+        A objA = new A(10);
+        B objB = new B(20, 30);
+        C objC = new C(40, 50, 60);
+
+        objA.methodA1();
+        objA.methodA2();
+        objA.overrideMethod();
+        System.out.println("VarA in class A: " + objA.varA);
+
+        objB.methodB1();
+        objB.methodB2();
+        objB.overrideMethod();
+        System.out.println("VarA in class B: " + objB.varA);
+        System.out.println("VarB in class B: " + objB.varB);
+
+        objC.methodC1();
+        objC.methodC2();
+        objC.overrideMethod();
+        System.out.println("VarA in class C: " + objC.varA);
+        System.out.println("VarB in class C: " + objC.varB);
+        System.out.println("VarC in class C: " + objC.varC);
+
+        A referenceToB = new B(20, 30);
+        A referenceToC = new C(40, 50, 60);
+
+        referenceToB.overrideMethod();
+        referenceToC.overrideMethod();
+    }
+}
