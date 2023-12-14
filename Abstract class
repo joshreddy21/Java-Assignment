@@ -1,0 +1,15 @@
+*****  Create an abstract class with abstract and non-abstract methods.****
+// Abstract class with abstract and non-abstract methods
+abstract class MyAbstractClass {
+    // Abstract method (no method body)
+    public abstract void abstractMethod();
+
+    // Non-abstract method with a method body
+    public void nonAbstractMethod() {
+        System.out.println("This is a non-abstract method in the abstract class.");
+    }
+}
+
+*********Create a sub class for an abstract class. Create an object in the child class for the 
+abstract class and access the non-abstract methods************
+
