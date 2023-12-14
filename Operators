@@ -1,0 +1,303 @@
+****Write a function for arithmetic operators(+,-,*,/) *****
+public class ArithmeticOperations {
+
+    // Function to perform addition
+    public static double add(double operand1, double operand2) {
+        return operand1 + operand2;
+    }
+
+    // Function to perform subtraction
+    public static double subtract(double operand1, double operand2) {
+        return operand1 - operand2;
+    }
+
+    // Function to perform multiplication
+    public static double multiply(double operand1, double operand2) {
+        return operand1 * operand2;
+    }
+
+    // Function to perform division
+    public static double divide(double dividend, double divisor) {
+        if (divisor != 0) {
+            return dividend / divisor;
+        } else {
+            System.out.println("Error: Cannot divide by zero.");
+            return Double.NaN; // NaN (Not a Number) represents an undefined result
+        }
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        // Example values
+        double operand1 = 10.0;
+        double operand2 = 5.0;
+
+        // Call functions for each arithmetic operation and print the results
+        System.out.println("Addition: " + add(operand1, operand2));
+        System.out.println("Subtraction: " + subtract(operand1, operand2));
+        System.out.println("Multiplication: " + multiply(operand1, operand2));
+        System.out.println("Division: " + divide(operand1, operand2));
+    }
+}
+
+******Write a method for increment and decrement operators****
+
+import java.util.Scanner;
+
+public class IncrementDecrementExample {
+
+    // Method to demonstrate increment and decrement operators
+    public static void performIncrementDecrement(int value) {
+        // Original value
+        System.out.println("Original Value: " + value);
+
+        // Post-increment
+        int postIncrement = value++;
+        System.out.println("Post-Increment Result: " + postIncrement);
+        System.out.println("After Post-Increment: " + value);
+
+        // Post-decrement
+        int postDecrement = value--;
+        System.out.println("Post-Decrement Result: " + postDecrement);
+        System.out.println("After Post-Decrement: " + value);
+
+        // Pre-increment
+        int preIncrement = ++value;
+        System.out.println("Pre-Increment Result: " + preIncrement);
+        System.out.println("After Pre-Increment: " + value);
+
+        // Pre-decrement
+        int preDecrement = --value;
+        System.out.println("Pre-Decrement Result: " + preDecrement);
+        System.out.println("After Pre-Decrement: " + value);
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter an initial value
+        System.out.print("Enter an initial value: ");
+        int initialValue = scanner.nextInt();
+
+        // Close the Scanner to avoid resource leak
+        scanner.close();
+
+        // Call the method to perform increment and decrement operations
+        performIncrementDecrement(initialValue);
+    }
+}
+
+
+***** Program to equal operator and not equal operator****
+
+import java.util.Scanner;
+
+public class EqualityOperatorsExample {
+
+    // Method to compare two numbers using equal and not equal operators
+    public static void compareNumbers(int num1, int num2) {
+        // Equal operator
+        boolean isEqual = (num1 == num2);
+        System.out.println(num1 + " == " + num2 + ": " + isEqual);
+
+        // Not equal operator
+        boolean isNotEqual = (num1 != num2);
+        System.out.println(num1 + " != " + num2 + ": " + isNotEqual);
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter two numbers
+        System.out.print("Enter the first number: ");
+        int number1 = scanner.nextInt();
+
+        System.out.print("Enter the second number: ");
+        int number2 = scanner.nextInt();
+
+        // Close the Scanner to avoid resource leak
+        scanner.close();
+
+        // Call the method to compare numbers using equal and not equal operators
+        compareNumbers(number1, number2);
+    }
+}
+
+
+*****Write a program to find the two numbers equal or not.****
+import java.util.Scanner;
+
+public class CompareTwoNumbers {
+
+    // Method to compare two numbers for equality
+    public static boolean areNumbersEqual(int num1, int num2) {
+        return num1 == num2;
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter the first number
+        System.out.print("Enter the first number: ");
+        int number1 = scanner.nextInt();
+
+        // Prompt the user to enter the second number
+        System.out.print("Enter the second number: ");
+        int number2 = scanner.nextInt();
+
+        // Close the Scanner to avoid resource leak
+        scanner.close();
+
+        // Check if the two numbers are equal and print the result
+        if (areNumbersEqual(number1, number2)) {
+            System.out.println("The two numbers are equal.");
+        } else {
+            System.out.println("The two numbers are not equal.");
+        }
+    }
+}
+
+
+***Programs on Logical AND,OR operator and Logical NOT ****
+
+
+**Logical AND Operator **
+import java.util.Scanner;
+
+public class LogicalAndExample {
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter two boolean values
+        System.out.print("Enter the first boolean value (true/false): ");
+        boolean bool1 = scanner.nextBoolean();
+
+        System.out.print("Enter the second boolean value (true/false): ");
+        boolean bool2 = scanner.nextBoolean();
+
+        // Close the Scanner to avoid resource leak
+        scanner.close();
+
+        // Logical AND operation
+        boolean result = bool1 && bool2;
+
+        // Print the result
+        System.out.println("Result of logical AND: " + result);
+    }
+}
+**Logical OR Operator***
+
+import java.util.Scanner;
+
+public class LogicalOrExample {
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter two boolean values
+        System.out.print("Enter the first boolean value (true/false): ");
+        boolean bool1 = scanner.nextBoolean();
+
+        System.out.print("Enter the second boolean value (true/false): ");
+        boolean bool2 = scanner.nextBoolean();
+
+        // Close the Scanner to avoid resource leak
+        scanner.close();
+
+        // Logical OR operation
+        boolean result = bool1 || bool2;
+
+        // Print the result
+        System.out.println("Result of logical OR: " + result);
+    }
+}
+
+
+**Logical NOT Operator***
+
+import java.util.Scanner;
+
+public class LogicalNotExample {
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter a boolean value
+        System.out.print("Enter a boolean value (true/false): ");
+        boolean boolValue = scanner.nextBoolean();
+
+        // Close the Scanner to avoid resource leak
+        scanner.close();
+
+        // Logical NOT operation
+        boolean result = !boolValue;
+
+        // Print the result
+        System.out.println("Result of logical NOT: " + result);
+    }
+}
+
+
+************* Program for relational operators (<,<==, >, >==) *****
+import java.util.Scanner;
+
+public class RelationalOperatorsExample {
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter two numbers
+        System.out.print("Enter the first number: ");
+        int num1 = scanner.nextInt();
+
+        System.out.print("Enter the second number: ");
+        int num2 = scanner.nextInt();
+
+        // Close the Scanner to avoid resource leak
+        scanner.close();
+
+        // Relational operators
+        boolean lessThan = num1 < num2;
+        boolean lessThanOrEqual = num1 <= num2;
+        boolean greaterThan = num1 > num2;
+        boolean greaterThanOrEqual = num1 >= num2;
+
+        // Print the results
+        System.out.println(num1 + " < " + num2 + ": " + lessThan);
+        System.out.println(num1 + " <= " + num2 + ": " + lessThanOrEqual);
+        System.out.println(num1 + " > " + num2 + ": " + greaterThan);
+        System.out.println(num1 + " >= " + num2 + ": " + greaterThanOrEqual);
+    }
+}
+
+**** Print the smaller and larger number ***
+public class FindLargestSmallestNumber {
+
+ public static void main(String[] args) {
+
+  //numbers array
+  int numbers[] = new int[]{5,7,8,3,1};
+
+  //assign first element of an array to largest and smallest
+  int smallest = numbers[0];
+  int largetst = numbers[0];
+
+  for (int i = 1; i < numbers.length; i++) {
+   if (numbers[i] > largetst)
+    largetst = numbers[i];
+   else if (numbers[i] < smallest)
+    smallest = numbers[i];
+  }
+
+  System.out.println("Largest Number is : " + largetst);
+  System.out.println("Smallest Number is : " + smallest);
+ }
+}
+
