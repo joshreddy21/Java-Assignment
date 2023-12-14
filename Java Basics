@@ -1,0 +1,154 @@
+**** 1.How to create a class, object, method and its signature****
+
+// MyClass.java
+
+public class MyClass {
+    // Class members (fields and methods) go here
+}
+
+Creating Object
+// MainClass.java
+
+public class MainClass {
+    public static void main(String[] args) {
+        // Creating an object of MyClass
+        MyClass myObject = new MyClass();
+        
+        // Accessing members of MyClass through the object
+        // For example, calling a method
+        myObject.myMethod();
+    }
+}
+
+
+Creating a Method and its Signature
+// MyClass.java
+
+public class MyClass {
+    // Method with signature
+    // ReturnType methodName(ParameterType parameterName) {
+    //     // Method body
+    // }
+
+    // Example method with no parameters and no return type (void)
+    void myMethod() {
+        System.out.println("Hello from myMethod!");
+    }
+
+    // Example method with parameters and a return type
+    int addNumbers(int a, int b) {
+        return a + b;
+    }
+}
+
+****Write a program to print your name.*****
+
+public class PrintName {
+    public static void main(String[] args) {
+        // Print my name to the console
+        System.out.println("Hello, I'm Jyothsna");
+    }
+}
+
+****Write a program for a Single line comment, multi-line and documentation comments *****
+// Single-line comment
+
+/*
+   Multi-line comment
+   This is another line of the multi-line comment.
+*/
+
+/**
+ * Documentation comment for the CommentExample class.
+ * Replace this with a meaningful description of your class.
+ */
+public class CommentExample {
+
+    /**
+     * This method adds two numbers.
+     *
+     * @param a The first number.
+     * @param b The second number.
+     * @return The sum of the two numbers.
+     */
+    public int addNumbers(int a, int b) {
+        // Inline comment explaining the purpose of this line of code
+        return a + b; // Adding two numbers
+    }
+
+    // Main method to demonstrate comments
+    public static void main(String[] args) {
+        // Create an instance of CommentExample
+        CommentExample example = new CommentExample();
+
+        // Call the addNumbers method and print the result
+        int result = example.addNumbers(10, 20);
+        System.out.println("Result: " + result);
+    }
+}
+****Define variables for different Data Types int, Boolean, char, float, double and print on the 
+ Console******
+
+public class DataTypesExample {
+    public static void main(String[] args) {
+        // Define variables for different data types
+        int integerValue = 42;
+        boolean booleanValue = true;
+        char charValue = 'A';
+        float floatValue = 3.14f;
+        double doubleValue = 123.456;
+
+        // Print variables on the console
+        System.out.println("Integer Value: " + integerValue);
+        System.out.println("Boolean Value: " + booleanValue);
+        System.out.println("Char Value: " + charValue);
+        System.out.println("Float Value: " + floatValue);
+        System.out.println("Double Value: " + doubleValue);
+    }
+}
+
+
+****Define the local and Global variables with the same name and print both variables and 
+understand the scope of the variables*****
+
+globalVariable is a class-level (static) variable, making it a global variable accessible throughout the class.
+
+public class VariableScopeExample {
+    // Global variable
+    static int globalVariable = 10;
+
+    public static void main(String[] args) {
+        // Local variable with the same name as the global variable
+        int globalVariable = 5;
+
+        // Access and print both variables
+        System.out.println("Local Variable: " + globalVariable);
+        System.out.println("Global Variable: " + VariableScopeExample.globalVariable);
+
+        // Call a method that uses the global variable
+        useGlobalVariable();
+    }
+
+    public static void useGlobalVariable() {
+        // Access and print the global variable inside another method
+        System.out.println("Global Variable from Another Method: " + VariableScopeExample.globalVariable);
+    }
+}
+
+
+****Write a function to print your name and call the function from main method ***
+public class PrintNameFunction {
+
+    // Function to print my name
+    public static void printMyName() {
+        System.out.println("Hello, I'm Jyothsna reddy");
+    }
+
+    // Main method
+    public static void main(String[] args) {
+      
+        printMyName();
+    }
+}
+
+
