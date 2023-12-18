@@ -1,0 +1,413 @@
+************* Write a program to generate Arithmetic Exception without exception handling*********
+public class ArithmeticExceptionExample {
+    public static void main(String[] args) {
+        // Attempting to divide by zero, which will result in an ArithmeticException
+        int numerator = 10;
+        int denominator = 0;
+
+        int result = numerator / denominator; // This line will throw ArithmeticException
+        System.out.println("Result: " + result); // This line won't be reached
+    }
+}
+
+********** Handle the Arithmetic exception using try-catch block********
+public class ArithmeticExceptionExample {
+    public static void main(String[] args) {
+        int numerator = 10;
+        int denominator = 0;
+
+        try {
+            // Attempting to divide by zero, which will result in an ArithmeticException
+            int result = numerator / denominator;
+            System.out.println("Result: " + result); // This line won't be reached
+        } catch (ArithmeticException e) {
+            // Handling the ArithmeticException
+            System.err.println("Exception caught: " + e.getMessage());
+        }
+
+        // The program continues after the catch block
+        System.out.println("Program continues after handling the exception.");
+    }
+}
+
+
+******** Write a method which throws exception, Call that method in main class without try block************
+public class ExceptionExample {
+
+    // Method that throws an exception
+    public static void methodThatThrowsException() throws Exception {
+        System.out.println("Inside methodThatThrowsException");
+        throw new Exception("Custom Exception Message");
+    }
+
+    public static void main(String[] args) throws Exception {
+        // Call the method without using a try block
+        methodThatThrowsException();
+    }
+}
+
+*************** Write a program with multiple catch blocks*****
+import java.util.Scanner;
+
+public class MultipleCatchExample {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.print("Enter a numerator: ");
+            int numerator = scanner.nextInt();
+
+            System.out.print("Enter a denominator: ");
+            int denominator = scanner.nextInt();
+
+            int result = divide(numerator, denominator);
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.err.println("ArithmeticException caught: " + e.getMessage());
+        } catch (java.util.InputMismatchException e) {
+            System.err.println("InputMismatchException caught: Invalid input. Please enter integers.");
+        } catch (Exception e) {
+            System.err.println("Exception caught: " + e.getMessage());
+        } finally {
+            // Close the scanner in the finally block to ensure it gets closed regardless of exceptions
+            scanner.close();
+            System.out.println("Scanner closed in the finally block.");
+        }
+    }
+
+    // Method that throws ArithmeticException
+    private static int divide(int numerator, int denominator) {
+        return numerator / denominator;
+    }
+}
+*********** Write a program to throw exception with your own message ***************
+class CustomException extends Exception {
+    // Constructor to set a custom message
+    public CustomException(String message) {
+        super(message);
+    }
+}
+
+public class ThrowCustomExceptionExample {
+    public static void main(String[] args) {
+        try {
+            // Call a method that throws a custom exception
+            throwCustomException();
+        } catch (CustomException e) {
+            // Catch and handle the custom exception
+            System.err.println("CustomException caught: " + e.getMessage());
+        }
+    }
+
+    // Method that throws a custom exception
+    private static void throwCustomException() throws CustomException {
+        // Throw a custom exception with a specific message
+        throw new CustomException("This is a custom exception with my own message.");
+    }
+}
+
+***************** Write a program to create your own exception ******
+// Custom exception class
+class MyCustomException extends Exception {
+    // Constructor to set a custom message
+    public MyCustomException(String message) {
+        super(message);
+    }
+}
+
+public class CustomExceptionExample {
+    public static void main(String[] args) {
+        try {
+            // Call a method that may throw your custom exception
+            validateInput(15);
+        } catch (MyCustomException e) {
+            // Catch and handle your custom exception
+            System.err.println("MyCustomException caught: " + e.getMessage());
+        }
+    }
+
+    // Method that may throw your custom exception
+    private static void validateInput(int value) throws MyCustomException {
+        // Example condition: if the input value is greater than 10, throw the custom exception
+        if (value > 10) {
+            throw new MyCustomException("Input value should not be greater than 10.");
+        } else {
+            System.out.println("Input value is valid: " + value);
+        }
+    }
+}
+
+************* Write a program with finally block **********
+import java.util.Scanner;
+
+public class FinallyBlockExample {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            // Attempt to perform some operations that may throw exceptions
+            System.out.print("Enter a numerator: ");
+            int numerator = scanner.nextInt();
+
+            System.out.print("Enter a denominator: ");
+            int denominator = scanner.nextInt();
+
+            int result = divide(numerator, denominator);
+            System.out.println("Result: " + result);
+
+        } catch (ArithmeticException e) {
+            System.err.println("ArithmeticException caught: " + e.getMessage());
+
+        } catch (java.util.InputMismatchException e) {
+            System.err.println("InputMismatchException caught: Invalid input. Please enter integers.");
+
+        } finally {
+            // Code in the finally block will be executed regardless of whether an exception occurs or not
+            System.out.println("Finally block: Closing resources...");
+
+            // Close the scanner in the finally block to ensure it gets closed
+            if (scanner != null) {
+                scanner.close();
+            }
+        }
+
+        System.out.println("Program continues after the try-catch-finally block.");
+    }
+
+    // Method that throws ArithmeticException
+    private static int divide(int numerator, int denominator) {
+        return numerator / denominator;
+    }
+}
+
+*************** Write a program to generate Arithmetic Exception***********
+public class ArithmeticExceptionExample {
+    public static void main(String[] args) {
+        // Attempting to divide by zero, which will result in an ArithmeticException
+        int numerator = 10;
+        int denominator = 0;
+
+        int result = numerator / denominator; // This line will throw ArithmeticException
+        System.out.println("Result: " + result); // This line won't be reached
+    }
+}
+
+
+********Write a program to generate ArrayIndexOutOfBoundException ***********
+public class ArrayIndexOutOfBoundsExceptionExample {
+    public static void main(String[] args) {
+        // Creating an array with size 5
+        int[] numbers = {1, 2, 3, 4, 5};
+
+        // Attempting to access an element with an index that is out of bounds
+        int indexOutOfBounds = numbers[10]; // This line will throw ArrayIndexOutOfBoundsException
+        System.out.println("Value at index 10: " + indexOutOfBounds); // This line won't be reached
+    }
+}
+
+*********** Write a program to generate ClassNotFoundException *********
+public class ClassNotFoundExceptionExample {
+    public static void main(String[] args) {
+        try {
+            // Attempting to load a class that doesn't exist
+            Class<?> dynamicClass = Class.forName("NonExistentClass");
+            System.out.println("Class loaded: " + dynamicClass.getName()); // This line won't be reached
+        } catch (ClassNotFoundException e) {
+            // Catching ClassNotFoundException and printing the message
+            System.err.println("ClassNotFoundException caught: " + e.getMessage());
+        }
+    }
+}
+
+*********** Write a program to generate FileNotFoundException ***************
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+public class FileNotFoundExceptionExample {
+    public static void main(String[] args) {
+        // Specify the path to a file that doesn't exist
+        String filePath = "NonExistentFile.txt";
+
+        try {
+            // Attempting to open a FileReader for a non-existent file
+            FileReader fileReader = new FileReader(filePath);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            // Reading a line (won't be reached in this example)
+            String line = bufferedReader.readLine();
+            System.out.println("Read line: " + line);
+
+            // Close the resources
+            bufferedReader.close();
+
+        } catch (FileNotFoundException e) {
+            // Catching FileNotFoundException and printing the message
+            System.err.println("FileNotFoundException caught: " + e.getMessage());
+        } catch (IOException e) {
+            // Catching IOException for any other IO-related issues
+            System.err.println("IOException caught: " + e.getMessage());
+        }
+    }
+}
+
+***********Write a program to generate IOException****************
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class IOExceptionExample {
+    public static void main(String[] args) {
+        // Specify the path to an existing file
+        String filePath = "ExistingFile.txt";
+
+        try {
+            // Open a FileReader and BufferedReader for an existing file
+            FileReader fileReader = new FileReader(filePath);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            // Close the BufferedReader
+            bufferedReader.close();
+
+            // Attempting to read from a closed BufferedReader
+            String line = bufferedReader.readLine(); // This line will throw IOException
+            System.out.println("Read line: " + line); // This line won't be reached
+
+        } catch (IOException e) {
+            // Catching IOException and printing the message
+            System.err.println("IOException caught: " + e.getMessage());
+        }
+    }
+}
+
+*********Write a program to generate NoSuchFieldException*******
+import java.lang.reflect.Field;
+
+public class NoSuchFieldExceptionExample {
+    public static void main(String[] args) {
+        try {
+            // Attempting to access a field "nonExistentField" in the SampleClass
+            Class<?> sampleClass = SampleClass.class;
+            Field field = sampleClass.getDeclaredField("nonExistentField");
+
+            // This line won't be reached, as NoSuchFieldException will be thrown
+            System.out.println("Field value: " + field.get(new SampleClass()));
+
+        } catch (NoSuchFieldException e) {
+            // Catching NoSuchFieldException and printing the message
+            System.err.println("NoSuchFieldException caught: " + e.getMessage());
+        } catch (IllegalAccessException e) {
+            // Catching IllegalAccessException if access to the field is not allowed (won't be reached in this example)
+            System.err.println("IllegalAccessException caught: " + e.getMessage());
+        }
+    }
+}
+
+class SampleClass {
+    // This class has no field named "nonExistentField"
+}
+
+*************** . Write a program to generate NoSuchMethodException *****
+import java.lang.reflect.Method;
+
+public class NoSuchMethodExceptionExample {
+    public static void main(String[] args) {
+        try {
+            // Attempting to invoke a method "nonExistentMethod" in the SampleClass
+            Class<?> sampleClass = SampleClass.class;
+            Method method = sampleClass.getDeclaredMethod("nonExistentMethod");
+
+            // This line won't be reached, as NoSuchMethodException will be thrown
+            method.invoke(new SampleClass());
+
+        } catch (NoSuchMethodException e) {
+            // Catching NoSuchMethodException and printing the message
+            System.err.println("NoSuchMethodException caught: " + e.getMessage());
+        } catch (Exception e) {
+            // Catching other exceptions that may occur during method invocation (won't be reached in this example)
+            System.err.println("Exception caught: " + e.getMessage());
+        }
+    }
+}
+
+class SampleClass {
+    // This class has no method named "nonExistentMethod"
+}
+************** Write a program to generate NullPointerException *********
+public class NullPointerExceptionExample {
+    public static void main(String[] args) {
+        try {
+            // Attempting to invoke a method on a null object
+            String nullString = null;
+            int length = nullString.length(); // This line will throw NullPointerException
+
+            // This line won't be reached
+            System.out.println("Length of the string: " + length);
+        } catch (NullPointerException e) {
+            // Catching NullPointerException and printing the message
+            System.err.println("NullPointerException caught: " + e.getMessage());
+        }
+    }
+}
+
+************* Write a program to generate NumberFormatException*********
+public class NumberFormatExceptionExample {
+    public static void main(String[] args) {
+        try {
+            // Attempting to convert a non-numeric string to an integer
+            String nonNumericString = "abc";
+            int numericValue = Integer.parseInt(nonNumericString); // This line will throw NumberFormatException
+
+            // This line won't be reached
+            System.out.println("Numeric value: " + numericValue);
+        } catch (NumberFormatException e) {
+            // Catching NumberFormatException and printing the message
+            System.err.println("NumberFormatException caught: " + e.getMessage());
+        }
+    }
+}
+
+**** Write a program to generate StringIndexOutOfBoundsException **************
+public class StringIndexOutOfBoundsExceptionExample {
+    public static void main(String[] args) {
+        try {
+            // Attempting to access an index that is out of bounds in a string
+            String text = "Hello";
+            char character = text.charAt(10); // This line will throw StringIndexOutOfBoundsException
+
+            // This line won't be reached
+            System.out.println("Character at index 10: " + character);
+        } catch (StringIndexOutOfBoundsException e) {
+            // Catching StringIndexOutOfBoundsException and printing the message
+            System.err.println("StringIndexOutOfBoundsException caught: " + e.getMessage());
+        }
+    }
+}
+
+************* Write a program to generate SQLException***********
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class SQLExceptionExample {
+    public static void main(String[] args) {
+        // Database URL for a non-existent database
+        String url = "jdbc:mysql://localhost:3306/nonexistentdatabase";
+
+        try {
+            // Attempting to establish a connection to a non-existent database
+            Connection connection = DriverManager.getConnection(url, "username", "password");
+
+            // Attempting to execute a query (won't be reached in this example)
+            Statement statement = connection.createStatement();
+            statement.execute("SELECT * FROM nonexistentschema.nonexistenttable");
+
+        } catch (SQLException e) {
+            // Catching SQLException and printing the message
+            System.err.println("SQLException caught: " + e.getMessage());
+        }
+    }
+}
