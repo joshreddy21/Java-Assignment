@@ -13,3 +13,135 @@ abstract class MyAbstractClass {
 *********Create a sub class for an abstract class. Create an object in the child class for the 
 abstract class and access the non-abstract methods************
 
+// Abstract class
+abstract class Shape {
+    // Abstract method
+    abstract void draw();
+
+    // Non-abstract method
+    void display() {
+        System.out.println("This is a shape.");
+    }
+}
+
+// Subclass extending the abstract class
+class Circle extends Shape {
+    // Implementation of the abstract method
+    @Override
+    void draw() {
+        System.out.println("Drawing a circle.");
+    }
+
+    // Additional method in the subclass
+    void calculateArea() {
+        System.out.println("Calculating the area of the circle.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating an object of the subclass
+        Circle circle = new Circle();
+
+        // Accessing non-abstract method from the abstract class
+        circle.display();
+
+        // Accessing abstract method implemented in the subclass
+        circle.draw();
+
+        // Accessing additional method in the subclass
+        circle.calculateArea();
+    }
+}
+
+***********Create an instance for the child class in child class and call abstract methods. ********
+
+in java,we cannot create an instance of an object.
+in python you can create
+
+from abc import ABC, abstractmethod
+
+# Abstract class
+class Shape(ABC):
+    # Abstract method
+    @abstractmethod
+    def draw(self):
+        pass
+
+    # Non-abstract method
+    def display(self):
+        print("This is a shape.")
+
+# Subclass extending the abstract class
+class Circle(Shape):
+    # Implementation of the abstract method
+    def draw(self):
+        print("Drawing a circle.")
+
+    # Additional method in the subclass
+    def calculate_area(self):
+        print("Calculating the area of the circle.")
+
+    # Method to call abstract method from within the subclass
+    def draw_shape(self):
+        # Call the abstract method from the abstract class
+        self.draw()
+
+# Create an instance of the subclass within the subclass
+circle_instance = Circle()
+
+# Accessing non-abstract method from the abstract class
+circle_instance.display()
+
+# Accessing abstract method implemented in the subclass
+circle_instance.draw()
+
+# Accessing additional method in the subclass
+circle_instance.calculate_area()
+
+# Calling abstract method from within the subclass
+circle_instance.draw_shape()
+
+
+************* Create an instance for the child class in child class and call non-abstract method.*******
+
+from abc import ABC, abstractmethod
+
+# Abstract class
+class Shape(ABC):
+    # Abstract method
+    @abstractmethod
+    def draw(self):
+        pass
+
+    # Non-abstract method
+    def display(self):
+        print("This is a shape.")
+
+# Subclass extending the abstract class
+class Circle(Shape):
+    # Implementation of the abstract method
+    def draw(self):
+        print("Drawing a circle.")
+
+    # Additional method in the subclass
+    def calculate_area(self):
+        print("Calculating the area of the circle.")
+
+    # Method to call non-abstract method from within the subclass
+    def perform_operations(self):
+        # Call the non-abstract method from the abstract class
+        self.display()
+
+# Create an instance of the subclass within the subclass
+circle_instance = Circle()
+
+# Calling non-abstract method from within the subclass
+circle_instance.perform_operations()
+
+# Accessing abstract method implemented in the subclass
+circle_instance.draw()
+
+# Accessing additional method in the subclass
+circle_instance.calculate_area()
+
