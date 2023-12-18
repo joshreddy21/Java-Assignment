@@ -1,0 +1,285 @@
+************* Print the fields/instance members of the current class using this and without using object*****
+public class MyClass {
+    // Instance variables
+    private int number;
+    private String text;
+
+    // Constructor
+    public MyClass(int number, String text) {
+        // Using 'this' to refer to instance variables
+        this.number = number;
+        this.text = text;
+    }
+
+    // Method to print instance members using 'this'
+    public void printMembers() {
+        // Using 'this' to refer to instance variables in a method
+        System.out.println("Number: " + this.number);
+        System.out.println("Text: " + this.text);
+    }
+
+    public static void main(String[] args) {
+        // Create an instance of the class
+        MyClass myObject = new MyClass(42, "Hello");
+
+        // Call the method to print instance members using 'this'
+        myObject.printMembers();
+    }
+}
+************Print the fields/instance members of the parent class using super************
+// Parent class
+class ParentClass {
+    // Instance variables
+    protected int parentNumber;
+    protected String parentText;
+
+    // Constructor
+    public ParentClass(int parentNumber, String parentText) {
+        this.parentNumber = parentNumber;
+        this.parentText = parentText;
+    }
+
+    // Method to print instance members
+    public void printParentMembers() {
+        System.out.println("Parent Number: " + parentNumber);
+        System.out.println("Parent Text: " + parentText);
+    }
+}
+
+// Child class inheriting from the parent class
+class ChildClass extends ParentClass {
+    // Constructor
+    public ChildClass(int parentNumber, String parentText) {
+        super(parentNumber, parentText);
+    }
+
+    // Method to print instance members including those from the parent class
+    public void printChildMembers() {
+        // Using 'super' to refer to the instance members of the parent class
+        super.printParentMembers();
+        System.out.println("Child Class: Additional information");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Create an instance of the child class
+        ChildClass childObject = new ChildClass(42, "Hello");
+
+        // Call the method to print instance members of the child class (including parent class)
+        childObject.printChildMembers();
+    }
+}
+Call constructor of the current class using this()**************
+public class MyClass {
+    private int number;
+    private String text;
+
+    // Constructor with parameters
+    public MyClass(int number, String text) {
+        // Call another constructor within the same class using this()
+        this();
+        this.number = number;
+        this.text = text;
+    }
+
+    // Default constructor (no parameters)
+    public MyClass() {
+        // Additional initialization or default values can be set here
+        System.out.println("Default constructor called.");
+    }
+
+    // Method to print instance members
+    public void printMembers() {
+        System.out.println("Number: " + number);
+        System.out.println("Text: " + text);
+    }
+
+    public static void main(String[] args) {
+        // Create an instance of the class using the constructor with parameters
+        MyClass myObject = new MyClass(42, "Hello");
+
+        // Call the method to print instance members
+        myObject.printMembers();
+    }
+}
+************
+Call argument constructor of current class using this()******
+public class MyClass {
+    private int number;
+    private String text;
+
+    // Constructor with parameters
+    public MyClass(int number, String text) {
+        // Call another constructor within the same class using this()
+        this(number);
+        this.text = text;
+    }
+
+    // Constructor with only one parameter
+    public MyClass(int number) {
+        // Call another constructor within the same class using this()
+        this();
+        this.number = number;
+    }
+
+    // Default constructor (no parameters)
+    public MyClass() {
+        // Additional initialization or default values can be set here
+        System.out.println("Default constructor called.");
+    }
+
+    // Method to print instance members
+    public void printMembers() {
+        System.out.println("Number: " + number);
+        System.out.println("Text: " + text);
+    }
+
+    public static void main(String[] args) {
+        // Create an instance of the class using the constructor with parameters
+        MyClass myObject = new MyClass(42, "Hello");
+
+        // Call the method to print instance members
+        myObject.printMembers();
+    }
+}
+************ . Call constructor of the parent class using super()
+*************
+// Parent class
+class ParentClass {
+    private int parentNumber;
+    private String parentText;
+
+    // Constructor with parameters
+    public ParentClass(int parentNumber, String parentText) {
+        this.parentNumber = parentNumber;
+        this.parentText = parentText;
+        System.out.println("ParentClass constructor called.");
+    }
+
+    // Method to print instance members
+    public void printParentMembers() {
+        System.out.println("Parent Number: " + parentNumber);
+        System.out.println("Parent Text: " + parentText);
+    }
+}
+
+// Child class inheriting from the parent class
+class ChildClass extends ParentClass {
+    private int childNumber;
+    private String childText;
+
+    // Constructor with parameters
+    public ChildClass(int parentNumber, String parentText, int childNumber, String childText) {
+        // Call the constructor of the parent class using super()
+        super(parentNumber, parentText);
+        this.childNumber = childNumber;
+        this.childText = childText;
+        System.out.println("ChildClass constructor called.");
+    }
+
+    // Method to print instance members including those from the parent class
+    public void printChildMembers() {
+        // Call the method of the parent class
+        super.printParentMembers();
+        System.out.println("Child Number: " + childNumber);
+        System.out.println("Child Text: " + childText);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Create an instance of the child class using the constructor with parameters
+        ChildClass childObject = new ChildClass(42, "ParentText", 21, "ChildText");
+
+        // Call the method to print instance members of the child class (including parent class)
+        childObject.printChildMembers();
+    }
+}
+
+************ Use this() and super() in methods not in constructors***********
+// Parent class
+class ParentClass {
+    private int parentNumber;
+    private String parentText;
+
+    // Constructor with parameters
+    public ParentClass(int parentNumber, String parentText) {
+        initializeParent(parentNumber, parentText);
+        System.out.println("ParentClass constructor called.");
+    }
+
+    // Method to initialize instance members
+    private void initializeParent(int parentNumber, String parentText) {
+        this.parentNumber = parentNumber;
+        this.parentText = parentText;
+        System.out.println("ParentClass initialization method called.");
+    }
+
+    // Regular method
+    public void regularMethod() {
+        System.out.println("Regular method in ParentClass");
+        // Call the initialization method
+        initializeParent(99, "NewParentText");
+    }
+
+    // Method to print instance members
+    public void printParentMembers() {
+        System.out.println("Parent Number: " + parentNumber);
+        System.out.println("Parent Text: " + parentText);
+    }
+}
+
+// Child class inheriting from the parent class
+class ChildClass extends ParentClass {
+    private int childNumber;
+    private String childText;
+
+    // Constructor with parameters
+    public ChildClass(int parentNumber, String parentText, int childNumber, String childText) {
+        // Call the constructor of the parent class using super()
+        super(parentNumber, parentText);
+        initializeChild(childNumber, childText);
+        System.out.println("ChildClass constructor called.");
+    }
+
+    // Method to initialize instance members of the child class
+    private void initializeChild(int childNumber, String childText) {
+        this.childNumber = childNumber;
+        this.childText = childText;
+        System.out.println("ChildClass initialization method called.");
+    }
+
+    // Regular method in the child class
+    public void childRegularMethod() {
+        System.out.println("Regular method in ChildClass");
+        // Call the initialization method of the parent class
+        initializeParent(88, "ChildNewParentText");
+        // Call the initialization method of the child class
+        initializeChild(77, "NewChildText");
+    }
+
+    // Method to print instance members including those from the parent class
+    public void printChildMembers() {
+        // Call the method of the parent class
+        super.printParentMembers();
+        System.out.println("Child Number: " + childNumber);
+        System.out.println("Child Text: " + childText);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Create an instance of the child class using the constructor with parameters
+        ChildClass childObject = new ChildClass(42, "ParentText", 21, "ChildText");
+
+        // Call the method to print instance members of the child class (including parent class)
+        childObject.printChildMembers();
+
+        // Call regular methods in both parent and child classes
+        childObject.regularMethod();
+        childObject.childRegularMethod();
+    }
+}
+
+
