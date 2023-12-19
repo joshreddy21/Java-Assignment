@@ -101,4 +101,278 @@ public class ReadTextFileWithBufferedInputStream {
 
 ****11.. Write a program to write data to excel****
 
+import org.apache.poi.ss.usermodel.*;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+
+public class ExcelWriter {
+
+    public static void main(String[] args) {
+        // Example data
+        List<List<Object>> data = Arrays.asList(
+                Arrays.asList("Name", "Age", "City"),
+                Arrays.asList("John Doe", 25, "New York"),
+                Arrays.asList("Jane Smith", 30, "San Francisco"),
+                Arrays.asList("Bob Johnson", 22, "Los Angeles")
+        );
+
+        // File name and sheet name
+        String fileName = "output.xlsx";
+        String sheetName = "Sheet1";
+
+        // Write data to Excel
+        writeDataToExcel(data, fileName, sheetName);
+    }
+
+    private static void writeDataToExcel(List<List<Object>> data, String fileName, String sheetName) {
+        try (Workbook workbook = new XSSFWorkbook()) {
+            // Create a new sheet
+            Sheet sheet = workbook.createSheet(sheetName);
+
+            // Write data to the sheet
+            int rowNum = 0;
+            for (List<Object> rowData : data) {
+                Row row = sheet.createRow(rowNum++);
+                int colNum = 0;
+                for (Object value : rowData) {
+                    Cell cell = row.createCell(colNum++);
+                    if (value instanceof String) {
+                        cell.setCellValue((String) value);
+                    } else if (value instanceof Integer) {
+                        cell.setCellValue((Integer) value);
+                    }
+                    // Add more conditions for other data types as needed
+                }
+            }
+
+            // Save the workbook to a file
+            try (FileOutputStream fileOut = new FileOutputStream(fileName)) {
+                workbook.write(fileOut);
+                System.out.println("Data has been written to " + fileName + " in the \"" + sheetName + "\" sheet.");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+***************Write text to a .txt file using BufferedOutputStream**************
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class WriteTextToFile {
+
+    public static void main(String[] args) {
+        String fileName = "output.txt";
+        String textToWrite = "Hello, this is a sample text.";
+
+        writeTextToFile(fileName, textToWrite);
+    }
+
+    private static void writeTextToFile(String fileName, String text) {
+        try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(fileName))) {
+            // Convert the text string to bytes and write to the file
+            byte[] bytes = text.getBytes();
+            bos.write(bytes);
+
+            System.out.println("Text has been written to " + fileName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+******************** Write a program to read text from .txt file using FileReader***************
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class ReadTextFromFile {
+
+    public static void main(String[] args) {
+        String fileName = "input.txt";
+
+        readTextFromFile(fileName);
+    }
+
+    private static void readTextFromFile(String fileName) {
+        try (FileReader fileReader = new FileReader(fileName);
+             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+
+            String line;
+            System.out.println("Reading text from " + fileName + ":");
+            
+            // Read and print each line from the file
+            while ((line = bufferedReader.readLine()) != null) {
+                System.out.println(line);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+*********** Write a program to write text to .txt file using FileWriter******
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class WriteTextToFile {
+
+    public static void main(String[] args) {
+        String fileName = "output.txt";
+        String textToWrite = "Hello, this is a sample text.";
+
+        writeTextToFile(fileName, textToWrite);
+    }
+
+    private static void writeTextToFile(String fileName, String text) {
+        try (FileWriter fileWriter = new FileWriter(fileName)) {
+            // Write the text to the file
+            fileWriter.write(text);
+
+            System.out.println("Text has been written to " + fileName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+*************Read text from a .txt file using BufferedReader*************
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class ReadTextFromFile {
+
+    public static void main(String[] args) {
+        String fileName = "input.txt";
+
+        readTextFromFile(fileName);
+    }
+
+    private static void readTextFromFile(String fileName) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {
+
+            String line;
+            System.out.println("Reading text from " + fileName + ":");
+
+            // Read and print each line from the file
+            while ((line = bufferedReader.readLine()) != null) {
+                System.out.println(line);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+************** Write text to a .txt file using BufferedWriter***********
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class WriteTextToFile {
+
+    public static void main(String[] args) {
+        String fileName = "output.txt";
+        String textToWrite = "Hello, this is a sample text.";
+
+        writeTextToFile(fileName, textToWrite);
+    }
+
+    private static void writeTextToFile(String fileName, String text) {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileName))) {
+            // Write the text to the file
+            bufferedWriter.write(text);
+
+            System.out.println("Text has been written to " + fileName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+************ Write a program to read data from properties file.****************
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+public class ReadPropertiesFile {
+
+    public static void main(String[] args) {
+        String filePath = "config.properties";
+
+        Properties properties = readProperties(filePath);
+
+        // Accessing individual properties
+        String dbUrl = properties.getProperty("database.url");
+        String dbUsername = properties.getProperty("database.username");
+        String dbPassword = properties.getProperty("database.password");
+
+        // Print the properties
+        System.out.println("Database URL: " + dbUrl);
+        System.out.println("Database Username: " + dbUsername);
+        System.out.println("Database Password: " + dbPassword);
+    }
+
+    private static Properties readProperties(String filePath) {
+        Properties properties = new Properties();
+
+        try (FileInputStream fis = new FileInputStream(filePath)) {
+            properties.load(fis);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return properties;
+    }
+}
+************* Write a program to read data from excel
+****************
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class ReadExcelFile {
+
+    public static void main(String[] args) {
+        String filePath = "example.xlsx"; // Change this to the path of your Excel file
+
+        try (FileInputStream fis = new FileInputStream(filePath);
+             Workbook workbook = new XSSFWorkbook(fis)) {
+
+            Sheet sheet = workbook.getSheetAt(0); // Assuming you are reading from the first sheet
+
+            // Iterate through each row
+            for (Row row : sheet) {
+                // Iterate through each cell in the row
+                for (Cell cell : row) {
+                    switch (cell.getCellType()) {
+                        case STRING:
+                            System.out.print(cell.getStringCellValue() + "\t");
+                            break;
+                        case NUMERIC:
+                            System.out.print(cell.getNumericCellValue() + "\t");
+                            break;
+                        case BOOLEAN:
+                            System.out.print(cell.getBooleanCellValue() + "\t");
+                            break;
+                        case BLANK:
+                            System.out.print("[BLANK]\t");
+                            break;
+                        default:
+                            System.out.print("[UNKNOWN]\t");
+                    }
+                }
+                System.out.println(); // Move to the next line after each row
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
 
