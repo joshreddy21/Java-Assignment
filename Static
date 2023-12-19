@@ -234,3 +234,30 @@ public class MyClass {
         myObject.instanceMethodWithParameters("Hello from instanceMethodWithParameters!");
     }
 }
+*********Call static methods in instance methods************
+public class StaticMethodExample {
+
+    public static void main(String[] args) {
+        // Creating an instance of the class
+        StaticMethodExample example = new StaticMethodExample();
+
+        // Calling the static method from the instance method
+        example.instanceMethod();
+
+        // Calling the static method directly using the class name
+        staticMethod();
+    }
+
+    // Instance method
+    public void instanceMethod() {
+        System.out.println("Inside instance method");
+
+        // Calling the static method from the instance method
+        staticMethod();
+    }
+
+    // Static method
+    public static void staticMethod() {
+        System.out.println("Inside static method");
+    }
+}
