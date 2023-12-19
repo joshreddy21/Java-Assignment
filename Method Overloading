@@ -1,2 +1,113 @@
 ******** Write two methods with the same name but different number of parameters of same type 
 and call the methods from main method***
+public class OverloadedMethodsExample {
+
+    public static void main(String[] args) {
+        // Call the methods with different parameter lists
+        printMessage("Jyothsna!"); // Calls the method with one parameter
+        printMessage("Reddy!"); // Calls the method with two parameters
+    }
+
+    // Method with one parameter
+    private static void printMessage(String message) {
+        System.out.println("Message: " + message);
+    }
+
+    // Method with two parameters
+    private static void printMessage(String message1, String message2) {
+        System.out.println("Message 1: " + message1);
+        System.out.println("Message 2: " + message2);
+    }
+}
+********** Write two methods with the same name but different number of parameters of different 
+data type and call the methods from main method **************
+public class OverloadedMethodsExample {
+
+    public static void main(String[] args) {
+        // Call the methods with different parameter lists
+        int sum1 = add(5, 10); // Calls the method with two int parameters
+        double sum2 = add(3.5, 7.2); // Calls the method with two double parameters
+
+        System.out.println("Sum 1: " + sum1);
+        System.out.println("Sum 2: " + sum2);
+    }
+
+    // Method with two int parameters
+    private static int add(int a, int b) {
+        return a + b;
+    }
+
+    // Method with two double parameters
+    private static double add(double x, double y) {
+        return x + y;
+    }
+}
+
+*************Write two methods with the same name and same number of parameters of same type 
+and call from main method
+****************
+public class SameNameSameParametersExample {
+
+    public static void main(String[] args) {
+        // Call the methods with the same parameter list
+        int result1 = multiply(5, 3); // Calls the method with two int parameters
+        double result2 = multiply(2.5, 4.0); // Calls the method with two double parameters
+
+        System.out.println("Result 1: " + result1);
+        System.out.println("Result 2: " + result2);
+    }
+
+    // Method with two int parameters
+    private static int multiply(int a, int b) {
+        return a * b;
+    }
+
+    // Method with two double parameters
+    private static double multiply(double x, double y) {
+        return x * y;
+    }
+}
+
+
+************ Write two methods with the same name and same number of parameters of different 
+type and call from main method************
+public class SameNameDifferentParametersExample {
+
+    public static void main(String[] args) {
+        // Call the methods with the same parameter list but different types
+        printInfo("John Doe"); // Calls the method with a String parameter
+        printInfo(25); // Calls the method with an int parameter
+    }
+
+    // Method with a String parameter
+    private static void printInfo(String name) {
+        System.out.println("Name: " + name);
+    }
+
+    // Method with an int parameter
+    private static void printInfo(int age) {
+        System.out.println("Age: " + age);
+    }
+}
+
+**********Write two methods with the same name, number of parameters and data type but 
+different return Type***********
+public class SameNameDifferentReturnTypeExample {
+
+    public static void main(String[] args) {
+        // The following line would cause a compilation error
+        // due to duplicate method declarations
+        // Uncommenting it will result in a compile-time error
+        // int result = add(5, 3);
+    }
+
+    // This method returns an int
+    private static int add(int a, int b) {
+        return a + b;
+    }
+
+    // This method returns a double
+    private static double add(int x, int y) {
+        return x + y;
+    }
+}
