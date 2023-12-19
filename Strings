@@ -78,3 +78,174 @@ public class StringSearchExample {
     }
 }
 
+**************Matching a String Against a Regular Expression With matches()*****************
+public class StringRegexMatching {
+
+    public static void main(String[] args) {
+        String input = "Hello123";
+
+        // Regular expression to match strings containing only letters
+        String regexLettersOnly = "[a-zA-Z]+";
+
+        // Regular expression to match strings containing only letters and numbers
+        String regexLettersAndNumbers = "[a-zA-Z0-9]+";
+
+        // Check if the input string matches the regular expressions
+        boolean matchesLettersOnly = input.matches(regexLettersOnly);
+        boolean matchesLettersAndNumbers = input.matches(regexLettersAndNumbers);
+
+        // Output the results
+        System.out.println("Does the string contain only letters? " + matchesLettersOnly);
+        System.out.println("Does the string contain only letters and numbers? " + matchesLettersAndNumbers);
+    }
+}
+***************** Comparing strings using the methods equals()**************
+public class StringComparisonExample {
+
+    public static void main(String[] args) {
+        String str1 = "Sai";
+        String str2 = "Jyothsna Reddy";
+        String str3 = "Bujula";
+
+        // Using equals() to compare strings
+        boolean isEqual1 = str1.equals(str2); // Case-sensitive comparison
+        boolean isEqual2 = str1.equals(str3); // Case-sensitive comparison
+
+        // Output the results
+        System.out.println("Is str1 equal to str2? " + isEqual1);
+        System.out.println("Is str1 equal to str3? " + isEqual2);
+    }
+}
+
+**************** equalsIgnoreCase(), startsWith(), endsWith() and compareTo()
+*************
+
+String str1 = "Hello";
+String str2 = "hello";
+
+boolean isEqualIgnoreCase = str1.equalsIgnoreCase(str2);
+System.out.println("Is str1 equal to str2 (case-insensitive)? " + isEqualIgnoreCase);
+
+
+String str = "Hello, World!";
+
+boolean startsWithHello = str.startsWith("Hello");
+System.out.println("Does the string start with 'Hello'? " + startsWithHello);
+
+
+String str = "Hello, World!";
+
+boolean endsWithWorld = str.endsWith("World!");
+System.out.println("Does the string end with 'World!'? " + endsWithWorld);
+
+
+String str1 = "apple";
+String str2 = "banana";
+
+int result = str1.compareTo(str2);
+System.out.println("Comparison result: " + result);
+
+
+************Trimming strings with trim() *************
+public class StringTrimExample {
+
+    public static void main(String[] args) {
+        String originalString = "    Hello, World!    ";
+
+        // Using trim() to remove leading and trailing whitespaces
+        String trimmedString = originalString.trim();
+
+        // Output the results
+        System.out.println("Original String: '" + originalString + "'");
+        System.out.println("Trimmed String: '" + trimmedString + "'");
+    }
+}
+
+
+************ Replacing characters in strings with replace()*************
+public class StringReplaceExample {
+
+    public static void main(String[] args) {
+        String originalString = "Hello, World!";
+
+        // Using replace() to replace characters
+        String replacedString = originalString.replace('o', 'x');
+
+        // Output the results
+        System.out.println("Original String: '" + originalString + "'");
+        System.out.println("Replaced String: '" + replacedString + "'");
+    }
+}
+************* Splitting strings with split()***********
+public class StringSplitExample {
+
+    public static void main(String[] args) {
+        String originalString = "apple,orange,banana,grape";
+
+        // Using split() to split the string into an array
+        String[] fruitsArray = originalString.split(",");
+
+        // Output the results
+        System.out.println("Original String: '" + originalString + "'");
+
+        // Output each element of the array
+        for (String fruit : fruitsArray) {
+            System.out.println("Fruit: '" + fruit + "'");
+        }
+    }
+}
+
+********** Converting Numbers to Strings with valueOf()*************
+public class NumberToStringConversion {
+
+    public static void main(String[] args) {
+        int intValue = 42;
+        double doubleValue = 3.14;
+        boolean booleanValue = true;
+
+        // Using valueOf() to convert numbers to strings
+        String intString = String.valueOf(intValue);
+        String doubleString = String.valueOf(doubleValue);
+        String booleanString = String.valueOf(booleanValue);
+
+        // Output the results
+        System.out.println("Integer as String: " + intString);
+        System.out.println("Double as String: " + doubleString);
+        System.out.println("Boolean as String: " + booleanString);
+
+        // You can also use concatenation with an empty string to achieve the same result
+        String intStringConcatenation = "" + intValue;
+        System.out.println("Integer as String (concatenation): " + intStringConcatenation);
+    }
+}
+
+************Converting integer objects to Strings***************
+Integer intValue = 42;
+
+// Using String.valueOf()
+String stringValue1 = String.valueOf(intValue);
+
+// Using Integer.toString()
+String stringValue2 = Integer.toString(intValue);
+
+************ Converting to uppercase and lowercase**************
+
+public class CaseConversionExample {
+
+    public static void main(String[] args) {
+        String originalString = "Hello, World!";
+
+        // Convert to uppercase
+        String uppercaseString = originalString.toUpperCase();
+
+        // Convert to lowercase
+        String lowercaseString = originalString.toLowerCase();
+
+        // Output the results
+        System.out.println("Original String: '" + originalString + "'");
+        System.out.println("Uppercase String: '" + uppercaseString + "'");
+        System.out.println("Lowercase String: '" + lowercaseString + "'");
+    }
+}
+
+
